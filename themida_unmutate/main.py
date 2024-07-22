@@ -18,7 +18,11 @@ def entry_point() -> None:
     miasm_ctx = MiasmContext.from_binary_file(args.protected_binary)
 
     # Resolve mutated functions' addresses if needed
-    protected_func_addrs = list(map(lambda addr: int(addr, 0), args.addresses))
+    try:
+        adress0 = lambda addr: int(addr, 0)
+    except: 
+        adress0 = lambda addr: int(int(addr,16),0)
+    protected_func_addrs = list(map(adress0, args.addresses))
     if not args.no_trampoline:
         logger.info("Resolving mutated's functions' addresses...")
         mutated_func_addrs = unwrap_functions(miasm_ctx, protected_func_addrs)
