@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2024-07-29
+
+### Changed
+
+- Bump lief to version 0.15.1
+
+## [0.2.0] - 2024-07-28
+
+### Added
+
+- Add support for x86_32 binaries
+
 ## [0.1.2] - 2024-07-16
 
 ### Fixed
